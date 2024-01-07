@@ -10,17 +10,7 @@ public class Answers {
     private String correctAnswer;
     private String description;
     private String explanation;
-
-/*    public Answers(String category, String firstAnswer, String secondAnswer, String thirdAnswer, String fourthAnswer, String correctAnswer, String correctDescription, String explanation) {
-        this.category = category;
-        this.firstAnswer = firstAnswer;
-        this.secondAnswer = secondAnswer;
-        this.thirdAnswer = thirdAnswer;
-        this.fourthAnswer = fourthAnswer;
-        this.correctAnswer = correctAnswer;
-        this.correctDescription = correctDescription;
-        this.explanation = explanation;
-    }*/
+    private String question;
 
     public void setCategory(String category) {
         this.category = category;
@@ -84,6 +74,14 @@ public class Answers {
 
     public String getExplanation() {
         return explanation;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getQuestion() {
+        return question;
     }
 
 }

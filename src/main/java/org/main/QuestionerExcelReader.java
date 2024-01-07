@@ -6,7 +6,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionerExcelReader {
 
@@ -15,12 +16,12 @@ public class QuestionerExcelReader {
         FileInputStream filestream = new FileInputStream(exelFile);
         XSSFWorkbook workbook = new XSSFWorkbook(filestream);
         XSSFSheet sheet = workbook.getSheet("Questions");
-        HashMap<String, Answers> questionerMap = new HashMap<>();
+        List<Answers> questionerList = new ArrayList<>();
 
         int rowsAmount = sheet.getPhysicalNumberOfRows();
         for (int row = 1; row < rowsAmount; row++) {
             Answers answers = new Answers();
-            String question = sheet.getRow(row).getCell(2).toString();
+            answers.setQuestion(sheet.getRow(row).getCell(2).toString());
             answers.setCategory(sheet.getRow(row).getCell(1).toString());
             answers.setFirstAnswer(sheet.getRow(row).getCell(3).toString());
             answers.setSecondAnswer(sheet.getRow(row).getCell(4).toString());
@@ -29,10 +30,12 @@ public class QuestionerExcelReader {
             answers.setCorrectAnswer(sheet.getRow(row).getCell(7).toString());
             answers.setDescription(sheet.getRow(row).getCell(8).toString());
             answers.setExplanation(sheet.getRow(row).getCell(9).toString());
-            questionerMap.put(question, answers);
+            questionerList.add(answers);
         }
 
-        System.out.println(questionerMap);
+        System.out.println(questionerList);
+
+        Quiz quiz = new Quiz();
 
     }
 }
