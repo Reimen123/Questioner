@@ -65,7 +65,7 @@ public class Answers {
     }
 
     public String getDescription() {
-        return fourthAnswer;
+        return description;
     }
 
     public void setExplanation(String explanation) {
